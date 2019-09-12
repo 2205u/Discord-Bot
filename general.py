@@ -111,4 +111,4 @@ async def ban(ctx, member: discord.Member, *, reason: str = None):
 
 
 # not to be exposed ----------
-bot.run("NTg4MDI3OTU0NjU1Nzg5MTEx.XP_KUA.hfVm5j4a-g5H0U7ugehGs1i1yhQ")
+bot.run("TOKEN")
