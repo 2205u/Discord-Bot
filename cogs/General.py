@@ -5,7 +5,7 @@ from datetime import datetime
 class General(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
-
+        
     @commands.Cog.listener()  
     async def on_ready(self):
             drpname = "for >manual."  
@@ -26,6 +26,12 @@ class General(commands.Cog):
         embed.set_footer(text="Byte Alpha", icon_url="https://cdn.discordapp.com/attachments/497783794091294740/"
                                                  "582817787974516763/abstract-abstract-painting-art-2230796.jpg")
         await ctx.send(content=None, embed=embed)
+        
+    @commands.command()
+    async def ping(self, ctx):
+        latency = self.bot.latency
+        await ctx.send("Pong! Numerical latency: " + str(latency) + " ms")
+         
 
 def setup(bot):
     bot.add_cog(General(bot))
