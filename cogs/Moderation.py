@@ -20,7 +20,7 @@ class Moderation(commands.Cog, name = "Mod"):
 
     @commands.command()
     @commands.has_permissions(kick_members=True)
-    async def kick(self, ctx, member : discord.Member, *, reason: str = None):
+    async def kick(self, ctx, member : discord.Member = None, *, reason: str = None):
         if member == None:
             await ctx.send("Please specify a user to be kicked")
         if reason == None:
@@ -29,6 +29,24 @@ class Moderation(commands.Cog, name = "Mod"):
         else:
             await discord.Member.kick(member, reason=reason)
             await ctx.send("Kicked " + str(member) + " for " + reason)
+
+    @commands.command()
+    @commands.has_permissions(ban_members=True)
+    async def ban(self, ctx, member : discord.Member = None, *, reason: str = None):
+        if member == None:
+            await ctx.send("Please specify a user to ban.")
+        if reason ==  None:
+            reason = "No specific reason xD"
+            await discord.Member.ban(member, reason = reason)
+            await ctx.send("Banned " + str(member) + "for no reason xD")
+        else:
+            await discord.Member.ban(member, reason = reason)
+            await ctx.send("Banned " + str(member) + " for " + reason)
+        
+    # @commands.command()
+    # @commands.has_permissions(manage_messages = True)
+    # async def purge(ctx, number):
+
 
 def setup(bot):
     bot.add_cog(Moderation(bot))
