@@ -1,6 +1,8 @@
 import discord
 from discord.ext import commands
 from datetime import datetime
+import json
+from urllib.request import urlopen, Request
 
 class General(commands.Cog):
     def __init__(self, bot):
@@ -32,6 +34,32 @@ class General(commands.Cog):
         latency = self.bot.latency
         await ctx.send("Pong! Numerical latency: " + str(latency) + " ms")
          
+    @commands.command()
+    async def chatbot(self, ctx, *, chat):
+        headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.3'}
+        items = []
+        int = 0
+        url = ""
+
+        noSpace = chat.split(" ")
+        print("No space: " + str(noSpace))
+        url = '%20'.join(noSpace)
+        print("URL: " + url)
+        file = 'https://some-random-api.ml/chatbot?message=' + url
+        print("Full URL" + file)
+
+        req = Request(url=file, headers=headers) 
+        html = urlopen(req).read() 
+        print("Data from API: " + str(html))
+        data = json.loads(html)
+        print("Decoded JSON: " + str(data))
+        msg = str(data)
+        msg2 = msg.lstrip(" {'response': ")
+        Message = msg2.rstrip("'}'")
+        print("Last message: " + Message)
+
+        await ctx.send(Message)
+
 
 def setup(bot):
     bot.add_cog(General(bot))
