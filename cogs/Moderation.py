@@ -16,6 +16,7 @@ class Moderation(commands.Cog, name = "Mod"):
         embed.add_field(name=">purge", value="Deletes specified number of messages")
         embed.set_footer(text="Byte Alpha", icon_url="https://cdn.discordapp.com/attachments/497783794091294740/"
                                                  "582817787974516763/abstract-abstract-painting-art-2230796.jpg")
+
         await ctx.send(content=None, embed=embed)
 
     @commands.command()
@@ -23,7 +24,7 @@ class Moderation(commands.Cog, name = "Mod"):
     async def kick(self, ctx, member : discord.Member = None, *, reason: str = None):
         if member == None:
             await ctx.send("Please specify a user to be kicked")
-        if reason == None:
+        elif reason == None:
             await discord.Member.kick(member, reason=reason)
             await ctx.send("Kicked " +  str(member) + " for no reason xD")
         else:
@@ -35,18 +36,18 @@ class Moderation(commands.Cog, name = "Mod"):
     async def ban(self, ctx, member : discord.Member = None, *, reason: str = None):
         if member == None:
             await ctx.send("Please specify a user to ban.")
-        if reason ==  None:
+        elif reason ==  None:
             reason = "No specific reason xD"
             await discord.Member.ban(member, reason = reason)
             await ctx.send("Banned " + str(member) + "for no reason xD")
         else:
             await discord.Member.ban(member, reason = reason)
             await ctx.send("Banned " + str(member) + " for " + reason)
-        
+            
+    # TODO:
     # @commands.command()
     # @commands.has_permissions(manage_messages = True)
     # async def purge(ctx, number):
-
 
 def setup(bot):
     bot.add_cog(Moderation(bot))
