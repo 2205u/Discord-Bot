@@ -8,3 +8,4 @@ not sure how to pay for them .__.
 > ~~Fun Cog~~
 > Make cogs disable-able
 > Reload bot command
+> Variable prefix
