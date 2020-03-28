@@ -7,5 +7,7 @@ not sure how to pay for them .__.
 ## TO-DO
 > ~~Fun Cog~~
 > Make cogs disable-able
+
 > Reload bot command
+
 > Variable prefix
