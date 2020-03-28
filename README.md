@@ -16,3 +16,5 @@ not sure how to pay for them .__.
 > if command not found, send a message 
 
 > if argument missing, send a message
+
+> list of disabled and enabled and avail. extensions
