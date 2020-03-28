@@ -12,3 +12,7 @@ not sure how to pay for them .__.
 > Reload bot command
 
 > Variable prefix
+
+> if command not found, send a message 
+
+> if argument missing, send a message
