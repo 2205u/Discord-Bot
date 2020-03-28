@@ -1,6 +1,5 @@
-from datetime import datetime
-
 import discord
+from datetime import datetime
 from discord.ext import commands
 
 class Moderation(commands.Cog, name = "Mod"):
@@ -11,12 +10,12 @@ class Moderation(commands.Cog, name = "Mod"):
     @commands.has_permissions(kick_members=True)
     async def modmanual(self, ctx):
         embed = discord.Embed(title="Help on Byte", description="Staff manual", color=0xdc322f,
-                          timestamp=datetime.utcfromtimestamp(1559025608))
+                        timestamp=datetime.utcfromtimestamp(1559025608))
         embed.add_field(name=">kick", value="Kicks the mentioned user")
         embed.add_field(name=">ban", value="Bans the mentioned user")
         embed.add_field(name=">purge", value="Deletes specified number of messages")
         embed.set_footer(text="Byte Alpha", icon_url="https://cdn.discordapp.com/attachments/497783794091294740/"
-                                                 "582817787974516763/abstract-abstract-painting-art-2230796.jpg")
+            "582817787974516763/abstract-abstract-painting-art-2230796.jpg")
 
         await ctx.send(content=None, embed=embed)
 
